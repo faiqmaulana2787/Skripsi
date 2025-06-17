@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class HasilUjian extends Model
+{
+    protected $fillable = [
+        'user_id',
+        'ujian_id',
+        'kategori_id',
+        'soal_id',
+        'jawaban_id',
+        'total_benar',
+        'total_salah',
+        'nilai'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function ujian()
+    {
+        return $this->belongsTo(Ujian::class);
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class);
+    }
+
+    public function soal()
+    {
+        return $this->belongsTo(Soal::class);
+    }
+
+    public function jawaban()
+    {
+        return $this->belongsTo(Jawaban::class);
+    }
+}
